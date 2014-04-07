@@ -1,3 +1,4 @@
+
 #!/bin/sh
 
 indent() {
@@ -15,6 +16,11 @@ cd $BUILD_DIR
 mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
 curl -L --silent $DOWNLOAD_URL | tar xz
+cd ffmpegthumbnailer-2.0.8/
+echo 'export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:app/vendor/ffmpeg/lib/pkgconfig/"'
+./configure
+make
+make install
 
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg-thumbnailer.sh"
