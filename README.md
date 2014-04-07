@@ -1,0 +1,2 @@
+heroku-buildpack-ffmpeg-thumbnailer
+===================================
