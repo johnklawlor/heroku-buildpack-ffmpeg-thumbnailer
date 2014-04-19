@@ -8,11 +8,14 @@ indent() {
 echo "-----> Install ffmpeg-thumbnailer"
 BUILD_DIR=$1
 VENDOR_DIR="vendor"
+DOWNLOAD_URL="https://api.github.com/repos/johnklawlor/ffmpegthumbnailer/contents/ffmpegthumbnailer.tar.gz"
+
+echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 
 cd $BUILD_DIR
 mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
-curl -L -H "Accept: application/vnd.github.raw" https://api.github.com/repos/johnklawlor/ffmpegthumbnailer/contents/ffmpegthumbnailer.tar.gz | tar xz
+curl -L -H "Accept: application/vnd.github.raw" $DOWNLOAD_URL | tar xz
 
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpegthumbnailer.sh"
