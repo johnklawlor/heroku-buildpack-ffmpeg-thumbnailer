@@ -16,13 +16,13 @@ cd $BUILD_DIR
 mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
 curl -L --silent $DOWNLOAD_URL | tar xz
-cd ffmpegthumbnailer-2.0.8/
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/app/vendor/ffmpeg/lib/pkgconfig/"
-echo $PKG_CONFIG_PATH
-./configure --prefix /app/vendor/ffmpegthumbnailer && make install
+#cd ffmpegthumbnailer-2.0.8/
+#export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/app/vendor/ffmpeg/lib/pkgconfig/"
+#echo $PKG_CONFIG_PATH
+#./configure --prefix /app/vendor/ffmpegthumbnailer && make install
 
-echo "exporting PATH and LIBRARY_PATH" | indent
-PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg-thumbnailer.sh"
-mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$PATH:vendor/ffmpeg-thumbnailer/bin"' >> $PROFILE_PATH
-echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/ffmpeg-thumbnailer/lib"' >> $PROFILE_PATH
+#echo "exporting PATH and LIBRARY_PATH" | indent
+#PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg-thumbnailer.sh"
+#mkdir -p $(dirname $PROFILE_PATH)
+#echo 'export PATH="$PATH:vendor/ffmpeg-thumbnailer/bin"' >> $PROFILE_PATH
+#echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/ffmpeg-thumbnailer/lib"' >> $PROFILE_PATH
